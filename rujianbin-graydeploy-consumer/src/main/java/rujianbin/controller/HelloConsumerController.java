@@ -39,7 +39,7 @@ public class HelloConsumerController {
      */
     @RequestMapping("/hello-consumer2")
     public Map hello2(@RequestParam(value = "version", required = false) String version){
-        System.out.println("线程id="+Thread.currentThread().getId());
+        System.out.println("controller 线程id="+Thread.currentThread().getId());
         Long s1 = System.currentTimeMillis();
         String hello = helloService.hello(version);
 //        String say = helloService.say("张三",12);

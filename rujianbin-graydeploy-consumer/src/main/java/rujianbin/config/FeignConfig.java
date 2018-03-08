@@ -85,10 +85,9 @@ public class FeignConfig {
                 version = request.getHeader(RjbThreadLocal.GRAY_FLAG);
             }
             if(StringUtils.isEmpty(version)){
-                System.out.println("线程id="+Thread.currentThread().getId());
                 version = (String)RjbThreadLocal.threadLocal.get();
             }
-
+            System.out.println("RequestInterceptor 线程id="+Thread.currentThread().getId());
             template.header(RjbThreadLocal.GRAY_FLAG, version);
         }
     }

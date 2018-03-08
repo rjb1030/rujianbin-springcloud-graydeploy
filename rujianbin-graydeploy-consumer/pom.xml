@@ -37,5 +37,10 @@
             <artifactId>eureka-client</artifactId>
             <version>1.6.2</version>
         </dependency>
+        <!-- 服务链路跟踪  无需配置即可对日志输出上增加链路标记-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
+        </dependency>
     </dependencies>
 </project>

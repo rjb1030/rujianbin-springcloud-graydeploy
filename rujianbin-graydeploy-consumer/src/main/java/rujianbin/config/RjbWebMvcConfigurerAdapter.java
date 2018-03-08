@@ -34,7 +34,7 @@ public class RjbWebMvcConfigurerAdapter extends WebMvcConfigurerAdapter {
                 System.out.println("请求中 header["+headerName+"]="+httpServletRequest.getHeader(headerName));
             }
             RjbThreadLocal.threadLocal.set(httpServletRequest.getHeader(RjbThreadLocal.GRAY_FLAG));
-            System.out.println("线程id="+Thread.currentThread().getId());
+            System.out.println("MVCInterceptor 线程id="+Thread.currentThread().getId());
             return true;
         }
     }
