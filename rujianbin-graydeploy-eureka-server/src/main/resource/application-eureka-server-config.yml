@@ -1,0 +1,26 @@
+server: 
+  port: 8000
+eureka:
+  instance:
+    appname: sid1-rujianbin-eureka-server
+    hostname: localhost
+    prefer-ip-address: true    #允许使用ip作为注册中心的地址。默认false即使用主机名（instance.hostname）且需要调用方将hostname做host指向
+    lease-expiration-duration-in-seconds: 20
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://localhost:${server.port}/eureka/
+  server:
+    enable-self-preservation: true
+spring:
+  application:
+    name: rujianbin-graydeploy-eureka-server
+
+
+
+    
+    
+    
+    
+    
