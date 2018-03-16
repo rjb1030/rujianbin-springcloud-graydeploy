@@ -28,10 +28,10 @@
             <groupId>com.fm</groupId>
             <artifactId>fm-cloud-starter-bamboo</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.fm</groupId>
-            <artifactId>fm-cloud-graybunny</artifactId>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.fm</groupId>-->
+            <!--<artifactId>fm-cloud-graybunny</artifactId>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>com.netflix.eureka</groupId>
             <artifactId>eureka-client</artifactId>

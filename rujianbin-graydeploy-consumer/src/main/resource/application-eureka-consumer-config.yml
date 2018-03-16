@@ -33,10 +33,10 @@ hystrix:
 
 rujianbin:
   testName: local-safwer2
-graybunny:
-  instance:
-    grayEnroll: true #是否在启动后自动注册成灰度实例
-  serverUrl: http://localhost:8001 #灰度服务端的url
+#graybunny:
+#  instance:
+#    grayEnroll: true #是否在启动后自动注册成灰度实例
+#  serverUrl: http://localhost:8001 #灰度服务端的url
 
 
     

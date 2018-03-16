@@ -5,7 +5,6 @@ import com.fm.cloud.bamboo.RequestVersionExtractor;
 import feign.Logger;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
@@ -38,14 +37,14 @@ public class FeignConfig {
     }
 
 
-    /**
-     * 自定义hystrix隔离策略，使THREAD模式下依然可以传递RequestAttribute
-     * @return
-     */
-    @Bean
-    public RequestAttributeHystrixConcurrencyStrategy requestAttributeHystrixConcurrencyStrategy(){
-        return new RequestAttributeHystrixConcurrencyStrategy();
-    }
+//    /**
+//     * 自定义hystrix隔离策略，使THREAD模式下依然可以传递RequestAttribute
+//     * @return
+//     */
+//    @Bean
+//    public RjbRequestAttributeHystrixConcurrencyStrategy requestAttributeHystrixConcurrencyStrategy(){
+//        return new RjbRequestAttributeHystrixConcurrencyStrategy();
+//    }
 
     @Bean
     public RequestVersionExtractor requestVersionExtractor(){
@@ -78,15 +77,18 @@ public class FeignConfig {
 
         @Override
         public void apply(RequestTemplate template) {
-            String version="";
-            ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-            if(attributes!=null){
-                HttpServletRequest request = attributes.getRequest();
-                version = request.getHeader(RjbThreadLocal.GRAY_FLAG);
-            }
-            if(StringUtils.isEmpty(version)){
-                version = (String)RjbThreadLocal.threadLocal.get();
-            }
+            String version=RjbThreadLocal.version_context.get();
+            System.out.println("feign RequestInterceptor  版本号="+version);
+//            if(StringUtils.isEmpty(version)){
+//                ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+//                if(attributes!=null){
+//                    HttpServletRequest request = attributes.getRequest();
+//                    version = request.getHeader(RjbThreadLocal.GRAY_FLAG);
+//                }
+//            }
+//            if(StringUtils.isEmpty(version)){
+//                version = (String)RjbThreadLocal.threadLocal.get();
+//            }
             System.out.println("RequestInterceptor 线程id="+Thread.currentThread().getId());
             template.header(RjbThreadLocal.GRAY_FLAG, version);
         }

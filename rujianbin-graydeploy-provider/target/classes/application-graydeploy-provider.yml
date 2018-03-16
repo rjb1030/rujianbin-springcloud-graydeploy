@@ -15,6 +15,6 @@ eureka:
     metadata-map:
       versions: 1.0
 
-graybunny:
-  instance:
-    grayEnroll: false
+#graybunny:
+#  instance:
+#    grayEnroll: false

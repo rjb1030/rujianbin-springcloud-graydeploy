@@ -1,5 +1,6 @@
 package rujianbin.config;
 
+import com.netflix.hystrix.strategy.concurrency.HystrixRequestContext;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -33,7 +34,11 @@ public class RjbWebMvcConfigurerAdapter extends WebMvcConfigurerAdapter {
                 String headerName = headerNames.nextElement();
                 System.out.println("请求中 header["+headerName+"]="+httpServletRequest.getHeader(headerName));
             }
-            RjbThreadLocal.threadLocal.set(httpServletRequest.getHeader(RjbThreadLocal.GRAY_FLAG));
+//            RjbThreadLocal.threadLocal.set(httpServletRequest.getHeader(RjbThreadLocal.GRAY_FLAG));
+            if (!HystrixRequestContext.isCurrentThreadInitialized()) {
+                HystrixRequestContext.initializeContext();
+            }
+            RjbThreadLocal.version_context.set(httpServletRequest.getHeader(RjbThreadLocal.GRAY_FLAG));
             System.out.println("MVCInterceptor 线程id="+Thread.currentThread().getId());
             return true;
         }

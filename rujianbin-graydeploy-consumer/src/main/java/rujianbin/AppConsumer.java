@@ -1,6 +1,5 @@
 package rujianbin;
 
-import com.fm.gray.client.EnableGrayBunny;
 import org.apache.catalina.authenticator.jaspic.AuthConfigFactoryImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +18,7 @@ import javax.security.auth.message.config.AuthConfigFactory;
  * Hello world!
  *
  */
-@EnableGrayBunny
+//@EnableGrayBunny
 @EnableFeignClients
 @EnableDiscoveryClient
 @SpringBootApplication
