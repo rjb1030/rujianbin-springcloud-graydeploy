@@ -1,18 +1,9 @@
 package rujianbin.config;
 
-import com.fm.cloud.bamboo.BambooRequest;
-import com.fm.cloud.bamboo.RequestVersionExtractor;
+
 import feign.Logger;
-import feign.RequestInterceptor;
-import feign.RequestTemplate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
-
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created by rujianbin on 2018/2/28.
@@ -37,62 +28,13 @@ public class FeignConfig {
     }
 
 
-//    /**
-//     * 自定义hystrix隔离策略，使THREAD模式下依然可以传递RequestAttribute
-//     * @return
-//     */
 //    @Bean
-//    public RjbRequestAttributeHystrixConcurrencyStrategy requestAttributeHystrixConcurrencyStrategy(){
-//        return new RjbRequestAttributeHystrixConcurrencyStrategy();
+//    public RequestVersionExtractor requestVersionExtractor(){
+//        return new RequestVersionExtractor.RequestHeaderVersionExtractor();
 //    }
 
-    @Bean
-    public RequestVersionExtractor requestVersionExtractor(){
-        return new RequestHeaderVersionExtractor();
-    }
 
 
-    private class RequestHeaderVersionExtractor implements RequestVersionExtractor{
-
-        @Override
-        public String extractVersion(BambooRequest bambooRequest) {
-            return bambooRequest.getHeaders().getFirst(RjbThreadLocal.GRAY_FLAG);
-        }
-    }
-
-    /**
-     * Feign请求拦截器
-     * 如果扫描成bean则全局生效，如果@FeignClient配置configuration=MyFeignRequestInterceptor.class则制定client生效
-     * 隔离策略是SEMAPHORE时  controller和RequestInterceptor在一个线程中，threadlocal可以传递header
-     * 隔离策略是Thread时,feign的http请求是在新的线程中的，threadlocal就不同了
-     * @author yinjihuan
-     * @create 2017-11-10 17:25
-     **/
-    @Component
-    public static class MyFeignRequestInterceptor  implements RequestInterceptor {
-
-        public MyFeignRequestInterceptor() {
-
-        }
-
-        @Override
-        public void apply(RequestTemplate template) {
-            String version=RjbThreadLocal.version_context.get();
-            System.out.println("feign RequestInterceptor  版本号="+version);
-//            if(StringUtils.isEmpty(version)){
-//                ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-//                if(attributes!=null){
-//                    HttpServletRequest request = attributes.getRequest();
-//                    version = request.getHeader(RjbThreadLocal.GRAY_FLAG);
-//                }
-//            }
-//            if(StringUtils.isEmpty(version)){
-//                version = (String)RjbThreadLocal.threadLocal.get();
-//            }
-            System.out.println("RequestInterceptor 线程id="+Thread.currentThread().getId());
-            template.header(RjbThreadLocal.GRAY_FLAG, version);
-        }
-    }
 
 
 

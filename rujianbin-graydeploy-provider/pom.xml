@@ -19,14 +19,16 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-feign</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.fm</groupId>
-            <artifactId>fm-cloud-starter-bamboo</artifactId>
-        </dependency>
         <!--<dependency>-->
             <!--<groupId>com.fm</groupId>-->
-            <!--<artifactId>fm-cloud-graybunny</artifactId>-->
+            <!--<artifactId>fm-cloud-starter-bamboo</artifactId>-->
         <!--</dependency>-->
+        <!-- -->
+        <dependency>
+            <groupId>com.graydeploy.springcloud.versioning</groupId>
+            <artifactId>springcloud-starter-versioning</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
         <!-- 服务链路跟踪  无需配置即可对日志输出上增加链路标记-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

@@ -15,7 +15,6 @@
     <module>rujianbin-graydeploy-provider</module>
     <module>rujianbin-graydeploy-consumer</module>
     <module>rujianbin-graydeploy-eureka-server</module>
-      <module>rujianbin-graydeploy-bunny-server</module>
   </modules>
   <packaging>pom</packaging>
 
