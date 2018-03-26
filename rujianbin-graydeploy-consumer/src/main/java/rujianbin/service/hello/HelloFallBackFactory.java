@@ -1,4 +1,4 @@
-package rujianbin.service;
+package rujianbin.service.hello;
 
 import feign.hystrix.FallbackFactory;
 import org.slf4j.Logger;
@@ -10,9 +10,9 @@ import rujianbin.eureka.api.service.IHelloService;
  * Created by rujianbin on 2018/3/7.
  */
 @Component
-public class MyFallBackFactory implements FallbackFactory<IHelloService> {
+public class HelloFallBackFactory implements FallbackFactory<IHelloService> {
 
-    private static final Logger log = LoggerFactory.getLogger(MyFallBackFactory.class);
+    private static final Logger log = LoggerFactory.getLogger(HelloFallBackFactory.class);
 
 
     @Override

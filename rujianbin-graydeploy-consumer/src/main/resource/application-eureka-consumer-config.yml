@@ -29,7 +29,7 @@ hystrix:
         isolation:
           strategy: THREAD    #THREAD  SEMAPHORE
           thread:
-            timeoutInMilliseconds: 5000
+            timeoutInMilliseconds: 50000
 
 rujianbin:
   testName: local-safwer33
@@ -38,6 +38,7 @@ versioning:
   server-version:
     metadata:
       rujianbin-graydeploy-provider: 1.0
+      rujianbin-graydeploy-provider2: 3.0
 
 management:
   security:

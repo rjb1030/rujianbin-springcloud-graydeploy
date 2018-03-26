@@ -1,8 +1,7 @@
-package rujianbin.service;
+package rujianbin.service.hello;
 
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import rujianbin.eureka.api.bean.RjbParam;
@@ -15,7 +14,7 @@ import rujianbin.eureka.api.service.IHelloService;
  * 利用@FeignClient 以接口形式封装服务提供者的restFul调用
  */
 
-@FeignClient(value = "rujianbin-graydeploy-provider",fallbackFactory = MyFallBackFactory.class)
+@FeignClient(value = "rujianbin-graydeploy-provider",fallbackFactory = HelloFallBackFactory.class)
 public interface IConsumerHelloService extends IHelloService {
 
     @RequestMapping("/hello")

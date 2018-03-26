@@ -20,10 +20,10 @@
             <artifactId>spring-cloud-starter-feign</artifactId>
         </dependency>
         <!--<dependency>-->
-            <!--<groupId>com.fm</groupId>-->
-            <!--<artifactId>fm-cloud-starter-bamboo</artifactId>-->
+            <!--<groupId>com.xinyunlian.springcloud</groupId>-->
+            <!--<artifactId>xinyunlian-springcloud-starter-versioning</artifactId>-->
+            <!--<version>1.0-SNAPSHOT</version>-->
         <!--</dependency>-->
-        <!-- -->
         <dependency>
             <groupId>com.graydeploy.springcloud.versioning</groupId>
             <artifactId>springcloud-starter-versioning</artifactId>

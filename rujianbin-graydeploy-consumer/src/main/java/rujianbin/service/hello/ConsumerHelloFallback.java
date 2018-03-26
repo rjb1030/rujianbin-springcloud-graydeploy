@@ -1,4 +1,4 @@
-package rujianbin.service;
+package rujianbin.service.hello;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestBody;

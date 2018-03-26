@@ -1,17 +1,11 @@
 package rujianbin;
 
-
-
-import com.graydeploy.springcloud.versioning.config.FeignClientConfigduration;
 import org.apache.catalina.authenticator.jaspic.AuthConfigFactoryImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.netflix.feign.EnableFeignClients;
-import org.springframework.cloud.netflix.ribbon.RibbonClient;
-import org.springframework.cloud.netflix.ribbon.RibbonClients;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import rujianbin.common.utils.RjbStringUtils;
@@ -24,17 +18,12 @@ import javax.security.auth.message.config.AuthConfigFactory;
  *
  */
 
-@EnableFeignClients
-@EnableDiscoveryClient
-@RibbonClients(value = {
-        @RibbonClient(name = "rujianbin-graydeploy-provider",configuration = FeignClientConfigduration.class),
-        @RibbonClient(name = "rujianbin-graydeploy-provider2",configuration = FeignClientConfigduration.class)
-})
 @SpringBootApplication
-@PropertySource(value={"classpath:application-eureka-consumer-config.yml"},factory=YamlPropertySourceFactory.class)
-public class AppConsumer
+@EnableDiscoveryClient
+@PropertySource(value="classpath:application-graydeploy-provider.yml",factory=YamlPropertySourceFactory.class)
+public class AppProvider2
 {
-    private static final Logger log = LoggerFactory.getLogger(AppConsumer.class);
+    private static final Logger log = LoggerFactory.getLogger(AppProvider2.class);
 
     public static void main( String[] args )
     {
@@ -42,8 +31,8 @@ public class AppConsumer
         if (AuthConfigFactory.getFactory() == null) {
             AuthConfigFactory.setFactory(new AuthConfigFactoryImpl());
         }
-        Environment env  = new SpringApplicationBuilder().sources(
-                AppConsumer.class).web(true).run(args).getEnvironment();
+        Environment env  =  new SpringApplicationBuilder().sources(
+                AppProvider2.class).web(true).run(args).getEnvironment();
         log.info(RjbStringUtils.startupLog(env));
     }
 }

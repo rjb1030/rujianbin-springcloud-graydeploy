@@ -28,6 +28,13 @@ public class FeignConfig {
     }
 
 
+
+//    @Bean
+//    public VersioningConfiguration.UnUseVersioningIRule unUseVersioningIRule(){
+//        return new VersioningConfiguration.UnUseVersioningIRule();
+//    }
+
+
 //    @Bean
 //    public RequestVersionExtractor requestVersionExtractor(){
 //        return new RequestVersionExtractor.RequestHeaderVersionExtractor();

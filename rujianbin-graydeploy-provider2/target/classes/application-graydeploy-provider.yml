@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: rujianbin-graydeploy-provider2
+server:
+  port: 8007
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://localhost:8000/eureka/
+  instance:
+    prefer-ip-address: true
+    instanceId: ${spring.application.name}:${server.port}
+    metadata-map:
+      versions: 4.0

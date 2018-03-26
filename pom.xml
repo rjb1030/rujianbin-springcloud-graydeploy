@@ -15,12 +15,21 @@
     <module>rujianbin-graydeploy-provider</module>
     <module>rujianbin-graydeploy-consumer</module>
     <module>rujianbin-graydeploy-eureka-server</module>
+      <module>rujianbin-graydeploy-provider2</module>
+    <module>rujianbin-graydeploy-provider2</module>
   </modules>
   <packaging>pom</packaging>
 
   <name>rujianbin-springcloud-graydeploy</name>
 
   <dependencies>
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-dependencies</artifactId>
+      <version>Dalston.SR5</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
     <dependency>
       <groupId>rujianbin</groupId>
       <artifactId>extend-common-utils</artifactId>

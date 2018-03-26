@@ -8,16 +8,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>rujianbin</groupId>
-    <artifactId>rujianbin-graydeploy-consumer</artifactId>
+    <artifactId>rujianbin-graydeploy-provider2</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>rujianbin-graydeploy-consumer</name>
-    <url>http://maven.apache.org</url>
+    <name>rujianbin-graydeploy-provider2</name>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
 
     <dependencies>
         <dependency>
@@ -33,16 +29,6 @@
             <groupId>com.graydeploy.springcloud.versioning</groupId>
             <artifactId>springcloud-starter-versioning</artifactId>
             <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.netflix.eureka</groupId>
-            <artifactId>eureka-client</artifactId>
-            <version>1.6.2</version>
-        </dependency>
-        <!-- 服务链路跟踪  无需配置即可对日志输出上增加链路标记-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-sleuth</artifactId>
         </dependency>
     </dependencies>
 </project>
