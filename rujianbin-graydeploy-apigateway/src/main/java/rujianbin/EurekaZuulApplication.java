@@ -30,10 +30,10 @@ import javax.security.auth.message.config.AuthConfigFactory;
 
 @EnableZuulProxy
 @SpringBootApplication
-@RibbonClients(value = {
-        @RibbonClient(name = "rujianbin-graydeploy-provider",configuration = FeignClientConfigduration.class),
-        @RibbonClient(name = "rujianbin-graydeploy-provider2",configuration = FeignClientConfigduration.class)
-})
+//@RibbonClients(value = {
+//        @RibbonClient(name = "rujianbin-graydeploy-provider",configuration = FeignClientConfigduration.class),
+//        @RibbonClient(name = "rujianbin-graydeploy-provider2",configuration = FeignClientConfigduration.class)
+//})
 @PropertySource(value={"classpath:application-eureka-zuul-config.yml"},factory=YamlPropertySourceFactory.class)
 public class EurekaZuulApplication {
 

@@ -26,10 +26,10 @@ import javax.security.auth.message.config.AuthConfigFactory;
 
 @EnableFeignClients
 @EnableDiscoveryClient
-@RibbonClients(value = {
-        @RibbonClient(name = "rujianbin-graydeploy-provider",configuration = FeignClientConfigduration.class),
-        @RibbonClient(name = "rujianbin-graydeploy-provider2",configuration = FeignClientConfigduration.class)
-})
+//@RibbonClients(value = {
+//        @RibbonClient(name = "rujianbin-graydeploy-provider",configuration = FeignClientConfigduration.class),
+//        @RibbonClient(name = "rujianbin-graydeploy-provider2",configuration = FeignClientConfigduration.class)
+//})
 @SpringBootApplication
 @PropertySource(value={"classpath:application-eureka-consumer-config.yml"},factory=YamlPropertySourceFactory.class)
 public class AppConsumer

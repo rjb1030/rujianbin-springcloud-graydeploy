@@ -43,6 +43,11 @@ versioning:
     metadata:
       rujianbin-graydeploy-provider: 2.0
       rujianbin-graydeploy-provider2: 4.0
-
+rujianbin-graydeploy-provider:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.graydeploy.springcloud.versioning.ribbon.loadbalancer.VersioningZoneAvoidanceRule
+rujianbin-graydeploy-provider2:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.graydeploy.springcloud.versioning.ribbon.loadbalancer.VersioningZoneAvoidanceRule
 
 
