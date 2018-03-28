@@ -17,6 +17,7 @@
     <module>rujianbin-graydeploy-eureka-server</module>
       <module>rujianbin-graydeploy-provider2</module>
     <module>rujianbin-graydeploy-provider2</module>
+      <module>rujianbin-graydeploy-apigateway</module>
   </modules>
   <packaging>pom</packaging>
 

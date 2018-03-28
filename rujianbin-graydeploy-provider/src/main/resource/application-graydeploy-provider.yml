@@ -2,7 +2,7 @@ spring:
   application:
     name: rujianbin-graydeploy-provider
 server:
-  port: 8005
+  port: 8004
 eureka:
   client:
     register-with-eureka: true
@@ -13,4 +13,4 @@ eureka:
     prefer-ip-address: true
     instanceId: ${spring.application.name}:${server.port}
     metadata-map:
-      versions: 2.0
+      versions: 1.0
