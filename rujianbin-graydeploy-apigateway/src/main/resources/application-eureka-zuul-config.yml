@@ -38,5 +38,11 @@ ribbon:
   ConnectTimeout: 10000
   ReadTimeout: 10000
 
+versioning:
+  server-version:
+    metadata:
+      rujianbin-graydeploy-provider: 2.0
+      rujianbin-graydeploy-provider2: 4.0
+
 
 
